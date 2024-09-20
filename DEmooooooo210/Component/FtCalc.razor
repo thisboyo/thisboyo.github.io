@@ -1,13 +1,24 @@
 ﻿<div class="mb-3">
     <label class="form-label">Amount in Cm</label>
-    <NumberInput TValue="int" @bind-Value="@amount" Placeholder="Enter amount" />
+    <NumberInput TValue="int" @bind-Value="@feet" Placeholder="Enter Feet" />
+    <NumberInput TValue="int" @bind-Value="@inches" Placeholder="Enter Inches" />
+
+    <Button @onclick="() => ConvertFtIntoCm(feet,inches) ">Calculate</Button>
 </div>
-<div class="mb-3">Entered Amount: @ConvertFtoI(amount)</div>
+
+
 
 @code {
-    private int amount;
-    private double ConvertFtoI(double Foot)
+    private int feet;
+    private int inches;
+    private decimal cm;
+    private decimal ConvertFtIntoCm(int feet, int inches)
     {
-        return (Foot * 30.48);
+        decimal ret = 0;
+        ret = feet * 12;
+        ret += (ret * 2.54m);
+
+        return ret;
     }
+  
 }
