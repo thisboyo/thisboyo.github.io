@@ -1,0 +1,17 @@
+﻿<h3>Calc</h3>
+
+
+<div class="mb-3">
+    <label class="form-label">Amount in Celsius</label>
+    <NumberInput TValue="int" @bind-Value="@amount" Placeholder="Enter amount" />
+</div>
+<div class="mb-3">Entered Amount: @ConvertCtoF(amount)</div>
+
+@code {
+    private int amount;
+    private decimal ConvertCtoF(decimal celsius)
+    {
+        return (celsius * 9 / 5) + 32;
+    }
+}
+

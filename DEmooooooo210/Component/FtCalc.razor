@@ -1,0 +1,13 @@
+﻿<div class="mb-3">
+    <label class="form-label">Amount in Cm</label>
+    <NumberInput TValue="int" @bind-Value="@amount" Placeholder="Enter amount" />
+</div>
+<div class="mb-3">Entered Amount: @ConvertFtoI(amount)</div>
+
+@code {
+    private int amount;
+    private double ConvertFtoI(double Foot)
+    {
+        return (Foot * 30.48);
+    }
+}
